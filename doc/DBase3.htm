@@ -1,0 +1,632 @@
+
+
+
+<script type="text/javascript" src="/static/js/analytics.js"></script>
+<script type="text/javascript">archive_analytics.values.server_name="wwwb-app11.us.archive.org";archive_analytics.values.server_ms=159;</script>
+<link type="text/css" rel="stylesheet" href="/static/css/banner-styles.css"/>
+
+<TITLE> DBase File Structure </TITLE>
+
+
+
+<!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script type="text/javascript" src="/static/js/disclaim-element.js" ></script>
+<script type="text/javascript" src="/static/js/graph-calc.js" ></script>
+<script type="text/javascript">//<![CDATA[
+var __wm = (function(imgWidth,imgHeight,yearImgWidth,monthImgWidth){
+var wbPrefix = "/web/";
+var wbCurrentUrl = "http://ulisse.elettra.trieste.it/services/doc/dbase/DBFstruct.htm";
+
+var firstYear = 1996;
+var displayDay = "23";
+var displayMonth = "Mar";
+var displayYear = "2015";
+var prettyMonths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+var $D=document,$=function(n){return document.getElementById(n)};
+var trackerVal,curYear = -1,curMonth = -1;
+var yearTracker,monthTracker;
+function showTrackers(val) {
+  if (val===trackerVal) return;
+  var $ipp=$("wm-ipp");
+  var $y=$("displayYearEl"),$m=$("displayMonthEl"),$d=$("displayDayEl");
+  if (val) {
+    $ipp.className="hi";
+  } else {
+    $ipp.className="";
+    $y.innerHTML=displayYear;$m.innerHTML=displayMonth;$d.innerHTML=displayDay;
+  }
+  yearTracker.style.display=val?"inline":"none";
+  monthTracker.style.display=val?"inline":"none";
+  trackerVal = val;
+}
+function trackMouseMove(event,element) {
+  var eventX = getEventX(event);
+  var elementX = getElementX(element);
+  var xOff = Math.min(Math.max(0, eventX - elementX),imgWidth);
+  var monthOff = xOff % yearImgWidth;
+
+  var year = Math.floor(xOff / yearImgWidth);
+  var monthOfYear = Math.min(11,Math.floor(monthOff / monthImgWidth));
+  // 1 extra border pixel at the left edge of the year:
+  var month = (year * 12) + monthOfYear;
+  var day = monthOff % 2==1?15:1;
+  var dateString = zeroPad(year + firstYear) + zeroPad(monthOfYear+1,2) +
+    zeroPad(day,2) + "000000";
+
+  $("displayYearEl").innerHTML=year+firstYear;
+  $("displayMonthEl").innerHTML=prettyMonths[monthOfYear];
+  // looks too jarring when it changes..
+  //$("displayDayEl").innerHTML=zeroPad(day,2);
+  var url = wbPrefix + dateString + '/' +  wbCurrentUrl;
+  $("wm-graph-anchor").href=url;
+
+  if(curYear != year) {
+    var yrOff = year * yearImgWidth;
+    yearTracker.style.left = yrOff + "px";
+    curYear = year;
+  }
+  if(curMonth != month) {
+    var mtOff = year + (month * monthImgWidth) + 1;
+    monthTracker.style.left = mtOff + "px";
+    curMonth = month;
+  }
+}
+function hideToolbar() {
+  $("wm-ipp").style.display="none";
+}
+function bootstrap() {
+  var $spk=$("wm-ipp-sparkline");
+  yearTracker=$D.createElement('div');
+  yearTracker.className='yt';
+  with(yearTracker.style){
+    display='none';width=yearImgWidth+"px";height=imgHeight+"px";
+  }
+  monthTracker=$D.createElement('div');
+  monthTracker.className='mt';
+  with(monthTracker.style){
+    display='none';width=monthImgWidth+"px";height=imgHeight+"px";
+  }
+  $spk.appendChild(yearTracker);
+  $spk.appendChild(monthTracker);
+
+  var $ipp=$("wm-ipp");
+  $ipp&&disclaimElement($ipp);
+}
+return{st:showTrackers,mv:trackMouseMove,h:hideToolbar,bt:bootstrap};
+})(525, 27, 25, 2);//]]>
+</script>
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  min-width:800px !important;
+}
+</style>
+<div id="wm-ipp" lang="en" style="display:none;">
+
+<div style="position:fixed;left:0;top:0;width:100%!important">
+<div id="wm-ipp-inside">
+   <table style="width:100%;"><tbody><tr>
+   <td id="wm-logo">
+       <a href="/web/" title="Wayback Machine home page"><img src="/static/images/toolbar/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0" /></a>
+   </td>
+   <td class="c">
+       <table style="margin:0 auto;"><tbody><tr>
+       <td class="u" colspan="2">
+       <form target="_top" method="get" action="/web/form-submit.jsp" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="http://ulisse.elettra.trieste.it/services/doc/dbase/DBFstruct.htm" style="width:400px;" onfocus="this.focus();this.select();" /><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20150323061445" /><input type="submit" value="Go" /><span id="wm_tb_options" style="display:block;"></span></form>
+       </td>
+       <td class="n" rowspan="2">
+           <table><tbody>
+           <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+           <tr class="m">
+           	<td class="b" nowrap="nowrap">
+		
+		    <a href="/web/20150215082053/http://ulisse.elettra.trieste.it/services/doc/dbase/DBFstruct.htm" title="15 Feb 2015">FEB</a>
+		
+		</td>
+		<td class="c" id="displayMonthEl" title="You are here: 6:14:45 Mar 23, 2015">MAR</td>
+		<td class="f" nowrap="nowrap">
+		
+		    <a href="/web/20150423074958/http://ulisse.elettra.trieste.it/services/doc/dbase/DBFstruct.htm" title="23 Apr 2015"><strong>APR</strong></a>
+		
+                </td>
+	    </tr>
+           <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+           <tr class="d">
+               <td class="b" nowrap="nowrap">
+               
+                   <a href="/web/20150215082053/http://ulisse.elettra.trieste.it/services/doc/dbase/DBFstruct.htm" title="8:20:53 Feb 15, 2015"><img src="/static/images/toolbar/wm_tb_prv_on.png" alt="Previous capture" width="14" height="16" border="0" /></a>
+               
+               </td>
+               <td class="c" id="displayDayEl" style="width:34px;font-size:24px;" title="You are here: 6:14:45 Mar 23, 2015">23</td>
+	       <td class="f" nowrap="nowrap">
+               
+		   <a href="/web/20150423074958/http://ulisse.elettra.trieste.it/services/doc/dbase/DBFstruct.htm" title="7:49:58 Apr 23, 2015"><img src="/static/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0" /></a>
+	       
+	       </td>
+           </tr>
+           <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+           <tr class="y">
+	       <td class="b" nowrap="nowrap">
+               
+                   <a href="/web/20140209102655/http://ulisse.elettra.trieste.it/services/doc/dbase/DBFstruct.htm" title="9 Feb 2014"><strong>2014</strong></a>
+               
+               </td>
+               <td class="c" id="displayYearEl" title="You are here: 6:14:45 Mar 23, 2015">2015</td>
+	       <td class="f" nowrap="nowrap">
+               
+                   2016
+               
+	       </td>
+           </tr>
+           </tbody></table>
+       </td>
+       </tr>
+       <tr>
+       <td class="s">
+           <a class="t" href="/web/20150323061445*/http://ulisse.elettra.trieste.it/services/doc/dbase/DBFstruct.htm" title="See a list of every capture for this URL">17 captures</a>
+           <div class="r" title="Timespan for captures of this URL">16 May 06 - 7 Sep 15</div>
+       </td>
+       <td class="k">
+       <a href="" id="wm-graph-anchor">
+       <div id="wm-ipp-sparkline" title="Explore captures for this URL">
+	 <img id="sparklineImgId" alt="sparklines"
+		 onmouseover="__wm.st(1)" onmouseout="__wm.st(0)"
+		 onmousemove="__wm.mv(event,this)"
+		 width="525"
+		 height="27"
+		 border="0"
+		 src="/web/jsp/graph.jsp?graphdata=525_27_1996:-1:000000000000_1997:-1:000000000000_1998:-1:000000000000_1999:-1:000000000000_2000:-1:000000000000_2001:-1:000000000000_2002:-1:000000000000_2003:-1:000000000000_2004:-1:000000000000_2005:-1:000000000000_2006:-1:000010000000_2007:-1:500000000000_2008:-1:000000000000_2009:-1:000000000000_2010:-1:000000000000_2011:-1:000000000000_2012:-1:010101000110_2013:-1:000000001000_2014:-1:010000000000_2015:2:011100001000_2016:-1:000000000000" />
+       </div>
+       </a>
+       </td>
+       </tr></tbody></table>
+   </td>
+   <td class="r">
+       <a href="#close" onclick="__wm.h();return false;" style="background-image:url(/static/images/toolbar/wm_tb_close.png);top:5px;" title="Close the toolbar">Close</a>
+       <a href="http://faq.web.archive.org/" style="background-image:url(/static/images/toolbar/wm_tb_help.png);bottom:5px;" title="Get some help using the Wayback Machine">Help</a>
+   </td>
+   </tr></tbody></table>
+</div>
+</div>
+</div>
+<script type="text/javascript">__wm.bt();</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+<H1> DBase File Structure </H1>
+
+<I>
+Sometimes it is necessary to delve into a dBASE table outside the control
+of the Borland Database Engine (BDE). For instance, if the .DBT file (that
+contains memo data) for a given table is irretrievably lost, the file will
+not be usable because the byte in the file header indicates that there
+should be a corresponding memo file. This necessitates toggling this byte
+to indicate no such accompanying memo file. Or, you may just want to write
+your own data access routine.
+
+<P>
+Below are the file structures for dBASE table files. Represented are the
+file structures as used for various versions of dBASE: dBASE III PLUS 1.1,
+dBASE IV 2.0, dBASE 5.0 for DOS, and dBASE 5.0 for Windows.
+</I>
+
+<H2> Table of contents </H2>
+
+<UL>
+  <LI> <A name=T1 href=#C1> The data file header structure for dBASE III PLUS table file. </A>
+  <UL>
+      <LI> <A name=T1.1 href=#C1.1> The table file header: </A>
+      <LI> <A name=T1.2 href=#C1.2> Table Field Descriptor Bytes </A>
+      <LI> <A name=T1.3 href=#C1.3> Table Records  </A>
+      <LI> <A name=T1.4 href=#C1.4> Allowable Input for dBASE Data Types </A>
+      <LI> <A name=T1.5 href=#C1.5> Binary, Memo, and OLE Fields And .DBT Files </A>
+  </UL>
+  <LI> <A name=T2 href=#C2> The data file header structure for dBASE IV 2.0 table file. </A>
+  <UL>
+      <LI> <A name=T2.1 href=#C2.1> File Structure: </A>
+      <LI> <A name=T2.2 href=#C2.2> The field descriptor array:  </A>
+      <LI> <A name=T2.3 href=#C2.3> Database records:  </A>
+      <LI> <A name=T2.4 href=#C2.4> Allowable Input for dBASE Data Types:  </A>
+      <LI> <A name=T2.5 href=#C2.5> Memo Fields And .DBT Files  </A>
+  </UL>
+  <LI> <A name=T3 href=#C3> The data file header structure for dBASE 5.0 for DOS table file. </A>
+  <UL>
+      <LI> <A name=T3.1 href=#C3.1> The table file header:  </A>
+      <LI> <A name=T3.2 href=#C3.2> Table Field Descriptor Bytes  </A>
+      <LI> <A name=T3.3 href=#C3.3> Table Records  </A>
+      <LI> <A name=T3.4 href=#C3.4> Allowable Input for dBASE Data Types  </A>
+      <LI> <A name=T3.5 href=#C3.5> Memo Fields And .DBT Files  </A>
+  </UL>
+  <LI> <A name=T4 href=#C4> The data file header structure for dBASE 5.0 for Windows table file. </A>
+  <UL>
+      <LI> <A name=T4.1 href=#C4.1> The table file header:  </A>
+      <LI> <A name=T4.2 href=#C4.2> Table Field Descriptor Bytes  </A>
+      <LI> <A name=T4.3 href=#C4.3> Table Records  </A>
+      <LI> <A name=T4.4 href=#C4.4> Allowable Input for dBASE Data Types  </A>
+      <LI> <A name=T4.5 href=#C4.5> Binary, Memo, and OLE Fields And .DBT Files  </A>
+  </UL>
+</UL>
+
+<HR>
+<H2> <A name=C1 href=#T1> The data file header structure for dBASE III PLUS table file. </A> </H2>
+
+<H3> <A name=C1.1 href=#T1.1> The table file header: </A> </H3>
+
+<TABLE BORDER>
+<TR> <TD> <B> Byte <TD> <B> Contents	<TD>  <B>  Description
+<TR> <TD> 0	<TD> 1 byte		<TD> Valid dBASE III PLUS table file (03h without a memo .DBT file; 83h with a memo).
+<TR> <TD> 1-3	<TD> 3 bytes		<TD> Date of last update; in YYMMDD format.
+<TR> <TD> 4-7	<TD> 32-bit number	<TD> Number of records in the table.
+<TR> <TD> 8-9	<TD> 16-bit number	<TD> Number of bytes in the header.
+<TR> <TD> 10-11	<TD> 16-bit number	<TD> Number of bytes in the record.
+<TR> <TD> 12-14	<TD> 3 bytes		<TD> Reserved bytes.
+<TR> <TD> 15-27	<TD> 13 bytes		<TD> Reserved for dBASE III PLUS on a LAN.
+<TR> <TD> 28-31	<TD> 4 bytes		<TD> Reserved bytes.
+<TR> <TD> 32-n	<TD> 32 bytes		<TD> Field descriptor array (the structure of this array is each shown below)
+<TR> <TD> n+1	<TD> 1 byte		<TD> 0Dh stored as the field terminator.
+</TABLE>
+
+<P>
+n above is the last byte in the field descriptor array. The size of the
+array depends on the number of fields in the table file.
+
+<H3> <A name=C1.2 href=#T1.2> Table Field Descriptor Bytes </A> </H3>
+
+<TABLE BORDER>
+<TR> <TD> <B> Byte <TD> <B> Contents	<TD> <B> Description
+<TR> <TD> 0-10  <TD> 11 bytes		<TD> Field name in ASCII (zero-filled).
+<TR> <TD> 11    <TD> 1 byte		<TD> Field type in ASCII (C, D, L, M, or N).
+<TR> <TD> 12-15 <TD> 4 bytes		<TD> Field data address (address is set in memory; not useful on disk).
+<TR> <TD> 16    <TD> 1 byte		<TD> Field length in binary.
+<TR> <TD> 17    <TD> 1 byte		<TD> Field decimal count in binary.
+<TR> <TD> 18-19 <TD> 2 bytes		<TD> Reserved for dBASE III PLUS on a LAN.
+<TR> <TD> 20    <TD> 1 byte		<TD> Work area ID.
+<TR> <TD> 21-22 <TD> 2 bytes		<TD> Reserved for dBASE III PLUS on a LAN.
+<TR> <TD> 23    <TD> 1 byte		<TD> SET FIELDS flag.
+<TR> <TD> 24-31 <TD> 1 byte		<TD> Reserved bytes.
+</TABLE>
+
+<H3> <A name=C1.3 href=#T1.3> Table Records </A> </H3>
+
+The records follow the header in the table file. Data records are preceded
+by one byte, that is, a space (20h) if the record is not deleted, an
+asterisk (2Ah) if the record is deleted. Fields are packed into records
+without field separators orrecord terminators. The end of the file is
+marked by a single byte, with the end-of-file marker, an OEM code page
+character value of 26 (1Ah). You can input OEM code page data as indicated
+below.
+
+<H3> <A name=C1.4 href=#T1.4> Allowable Input for dBASE Data Types </A> </H3>
+
+<TABLE BORDER>
+<TR> <TD> <B> Data Type  <TD> <B> Data Input
+<TR> <TD> C (Character)  <TD> All OEM code page characters.
+<TR> <TD> D (Date)       <TD> Numbers and a character to separate month, day, and year (stored internally as 8 digits in YYYYMMDD format).
+<TR> <TD> N (Numeric)    <TD> - . 0 1 2 3 4 5 6 7 8 9
+<TR> <TD> L (Logical)    <TD> ? Y y N n T t F f (? when not initialized).
+<TR> <TD> M (Memo)       <TD> All OEM code page characters (stored internally as 10 digits representing a .DBT block number).
+</TABLE>
+
+<H3> <A name=C1.5 href=#T1.5> Binary, Memo, and OLE Fields And .DBT Files </A> </H3>
+
+Memo fields store data in .DBT files consisting of blocks numbered
+sequentially (0, 1, 2, and so on). The size of these blocks are internally
+set to 512 bytes. The first block in the .DBT file, block 0, is the .DBT
+file header.
+
+<P>
+Memo field of each record in the .DBF file contains the number of the
+block (in OEM code page values) where the field's data actually begins. If
+a field contains no data, the .DBF file contains blanks (20h) rather than
+a number.
+
+<P>
+When data is changed in a field, the block numbers may also change and the
+number in the .DBF may be changed to reflect the new location.
+
+<P>
+This information is from the Using dBASE III PLUS manual, Appendix C.
+
+<HR>
+<H2> <A name=C2 href=#T2> The data file header structure for dBASE IV 2.0 table file. </A> </H2>
+
+<H3> <A name=C2.1 href=#T2.1> File Structure: </A> </H3>
+
+<TABLE BORDER>
+<TR> <TD> <B> Byte <TD> <B> Contents   <TD> <B> Meaning
+<TR> <TD> 0        <TD> 1byte	       <TD> Valid dBASE IV file; bits 0-2 indicate version
+					number, bit 3 the presence of a dBASE IV memo
+					file, bits 4-6 the presence of an SQL table, bit
+					7 the presence of any memo file (either dBASE III
+					PLUS or dBASE IV).
+<TR> <TD> 1-3      <TD> 3 bytes        <TD> Date of last update; formattted as YYMMDD.
+<TR> <TD> 4-7      <TD> 32-bit number  <TD> Number of records in the file.
+<TR> <TD> 8-9      <TD> 16-bit number  <TD> Number of bytes in the header.
+<TR> <TD> 10-11    <TD> 16-bit number  <TD> Number of bytes in the record.
+<TR> <TD> 12-13    <TD> 2 bytes        <TD> Reserved; fill with 0.
+<TR> <TD> 14       <TD> 1 byte         <TD> Flag indicating incomplete transaction.
+<TR> <TD> 15       <TD> 1 byte         <TD> Encryption flag.
+<TR> <TD> 16-27    <TD> 12 bytes       <TD> Reserved for dBASE IV in a multi-user environment.
+<TR> <TD> 28       <TD> 1 bytes        <TD> Production MDX file flag; 01H if there is an MDX, 00H if not.
+<TR> <TD> 29       <TD> 1 byte         <TD> Language driver ID.
+<TR> <TD> 30-31    <TD> 2 bytes        <TD> Reserved; fill with 0.
+<TR> <TD> 32-n*    <TD> 32 bytes each  <TD> Field descriptor array (see below).
+<TR> <TD> n + 1    <TD> 1 byte         <TD> 0DH as the field terminator.
+</TABLE>
+
+<P>
+* n is the last byte in the field descriptor array. The size of the array
+depends on the number of fields in the database file.
+
+<H3> <A name=C2.2 href=#T2.2> The field descriptor array: </A> </H3>
+
+<TABLE BORDER>
+<TR> <TD> <B> Byte <TD> <B> Contents   <TD> <B> Meaning
+<TR> <TD> 0-10     <TD> 11 bytes       <TD> Field name in ASCII (zero-filled).
+<TR> <TD> 11       <TD> 1 byte         <TD> Field type in ASCII (C, D, F, L, M, or N).
+<TR> <TD> 12-15    <TD> 4 bytes        <TD> Reserved.
+<TR> <TD> 16       <TD> 1 byte         <TD> Field length in binary.
+<TR> <TD> 17       <TD> 1 byte         <TD> Field decimal count in binary.
+<TR> <TD> 18-19    <TD> 2 bytes        <TD> Reserved.
+<TR> <TD> 20       <TD> 1 byte         <TD> Work area ID.
+<TR> <TD> 21-30    <TD> 10 bytes       <TD> Reserved.
+<TR> <TD> 31       <TD> 1 byte         <TD> Production MDX field flag; 01H if field has an index tag in the production MDX file, 00H if not.
+</TABLE>
+
+<H3> <A name=C2.3 href=#T2.3> Database records: </A> </H3>
+
+The records follow the header in the database file. Data records are
+preceded by one byte; that is, a space (20H) if the record is not deleted,
+an asterisk (2AH) if the record is deleted. Fields are packed into
+records without field separators or record terminators. The end of the
+file is marked by a single byte, with the end-of-file marker an ASCII 26
+(1AH) character.
+
+<H3> <A name=C2.4 href=#T2.4> Allowable Input for dBASE Data Types: </A> </H3>
+
+<TABLE BORDER>
+<TR> <TD> <B> Data Type				<TD> <B> Data Input
+<TR> <TD> C (Character)				<TD> All OEM code page characters.
+<TR> <TD> D (Date)				<TD> Numbers and a character to separate month, day, and year (stored internally as 8 digits in YYYYMMDD format).
+<TR> <TD> F (Floating point binary numeric)	<TD> - . 0 1 2 3 4 5 6 7 8 9
+<TR> <TD> N (Binary coded decimal numeric)	<TD> - . 0 1 2 3 4 5 6 7 8 9
+<TR> <TD> L (Logical)				<TD> ? Y y N n T t F f (? when not initialized).
+<TR> <TD> M (Memo)				<TD> All OEM code page characters (stored internally as 10 digits representing a .DBT block number).
+</TABLE>
+
+<H3> <A name=C2.5 href=#T2.5> Memo Fields And .DBT Files </A> </H3>
+
+Memo fields store data in .DBT files consisting of blocks numbered
+sequentially (0, 1, 2, and so on). SET BLOCKSIZE determines the size of
+each block. The first block in the .DBT file, block 0, is the .DBT file
+header.
+
+<P>
+Each memo field of each record in the .DBF file contains the number of the
+block (in OEM code page values) where the field's data actually begins. If
+a field contains no data, the .DBF file contains blanks (20h) rather than
+a number.
+
+<P>
+When data is changed in a field, the block numbers may also change and the
+number in the .DBF may be changed to reflect the new location.
+
+<P>
+This information is from the dBASE IV Language Reference manual, Appendix D.
+
+<HR>
+<H2> <A name=C3 href=#T3> The data file header structure for dBASE 5.0 for DOS table file. </A> </H2>
+
+<H3> <A name=C3.1 href=#T3.1> The table file header: </A> </H3>
+
+<TABLE BORDER>
+<TR> <TD> <B> Byte	<TD> <B> Contents    <TD> <B> Description
+<TR> <TD> 0		<TD> 1 byte      <TD> Valid dBASE for Windows table file; bits 0-2 indicate
+					version number; bit 3 indicates presence of a dBASE IV
+					or dBASE for Windows memo file; bits 4-6 indicate the
+					presence of a dBASE IV SQL table; bit 7 indicates the
+					presence of any .DBT memo file (either a dBASE III PLUS
+					type or a dBASE IV or dBASE for Windows memo file).
+<TR> <TD> 1-3		<TD> 3 bytes     <TD> Date of last update; in YYMMDD format.
+<TR> <TD> 4-7 number	<TD> 32-bit	<TD> Number of records in the table.
+<TR> <TD> 8-9 number	<TD> 16-bit	<TD> Number of bytes in the header.
+<TR> <TD> 10-11 number	<TD> 16-bit	<TD> Number of bytes in the record.
+<TR> <TD> 12-13		<TD> 2 bytes     <TD> Reserved; filled with zeros.
+<TR> <TD> 14		<TD> 1 byte      <TD> Flag indicating incomplete dBASE transaction.
+<TR> <TD> 15		<TD> 1 byte      <TD> Encryption flag.
+<TR> <TD> 16-27		<TD> 12 bytes    <TD> Reserved for multi-user processing.
+<TR> <TD> 28		<TD> 1 byte      <TD> Production MDX flag; 01h stored in this byte if a production .MDX file exists for this table; 00h if no .MDX file exists.
+<TR> <TD> 29		<TD> 1 byte      <TD> Language driver ID.
+<TR> <TD> 30-31		<TD> 2 bytes     <TD> Reserved; filled with zeros.
+<TR> <TD> 32-n each	<TD> 32 bytes    <TD> Field descriptor array (the structure of this array is shown below)
+<TR> <TD> n+1		<TD> 1 byte      <TD> 0Dh stored as the field terminator.
+</TABLE>
+
+<P>
+n above is the last byte in the field descriptor array. The size of the
+array depends on the number of fields in the table file.
+
+<H3> <A name=C3.2 href=#T3.2> Table Field Descriptor Bytes </A> </H3>
+
+<TABLE BORDER>
+<TR> <TD> <B> Byte  <TD> <B> Contents    <TD> <B> Description
+<TR> <TD> 0-10  <TD> 11 bytes    <TD> Field name in ASCII (zero-filled).
+<TR> <TD> 11    <TD> 1 byte      <TD> Field type in ASCII (B, C, D, F, G, L, M, or N).
+<TR> <TD> 12-15 <TD> 4 bytes     <TD> Reserved.
+<TR> <TD> 16    <TD> 1 byte      <TD> Field length in binary.
+<TR> <TD> 17    <TD> 1 byte      <TD> Field decimal count in binary.
+<TR> <TD> 18-19 <TD> 2 bytes     <TD> Reserved.
+<TR> <TD> 20    <TD> 1 byte      <TD> Work area ID.
+<TR> <TD> 21-30 <TD> 10 bytes    <TD> Reserved.
+<TR> <TD> 31    <TD> 1 byte      <TD> Production .MDX field flag; 01h if field has an index
+                  tag in the production .MDX file; 00h if the field is not
+                  indexed.
+</TABLE>
+
+<H3> <A name=C3.3 href=#T3.3> Table Records </A> </H3>
+
+The records follow the header in the table file. Data records are preceded
+by one byte, that is, a space (20h) if the record is not deleted, an
+asterisk (2Ah) if the record is deleted. Fields are packed into records
+without field separators orrecord terminators. The end of the file is
+marked by a single byte, with the end-of-file marker, an OEM code page
+character value of 26 (1Ah). You can input OEM code page data as indicated
+below.
+
+<H3> <A name=C3.4 href=#T3.4> Allowable Input for dBASE Data Types </A> </H3>
+
+<TABLE BORDER>
+<TR> <TD> <B> Data Type	 <TD> <B> Data Input
+<TR> <TD> C (Character)  <TD> All OEM code page characters.
+<TR> <TD> D (Date)       <TD> Numbers and a character to separate month, day, and year (stored internally as 8 digits in YYYYMMDD format).
+<TR> <TD> F (Floating point binary numeric)  <TD> - . 0 1 2 3 4 5 6 7 8 9
+<TR> <TD> N (Numeric)    <TD> - . 0 1 2 3 4 5 6 7 8 9
+<TR> <TD> L (Logical)    <TD> ? Y y N n T t F f (? when not initialized).
+<TR> <TD> M (Memo)       <TD> All OEM code page characters (stored internally as 10 digits representing a .DBT block number).
+</TABLE>
+
+<H3> <A name=C3.5 href=#T3.5> Memo Fields And .DBT Files </A> </H3>
+
+Memo fields store data in .DBT files consisting of blocks numbered
+sequentially (0, 1, 2, and so on). SET BLOCKSIZE determines the size of
+each block. The first block in the .DBT file, block 0, is the .DBT file
+header.
+
+<P>
+Each memo field of each record in the .DBF file contains the number of the
+block (in OEM code page values) where the field's data actually begins. If
+a field contains no data, the .DBF file contains blanks (20h) rather than
+a number.
+
+<P>
+When data is changed in a field, the block numbers may also change and the
+number in the .DBF may be changed to reflect the new location.
+
+<P>
+Unlike dBASE III PLUS, if you delete text in a memo field, dBASE 5.0 for
+DOS may reuse the space from the deleted text when you input new text.
+dBASE III PLUS always appends new text to the end of the .DBT file. In
+dBASE III PLUS, the .DBT file size grows whenever new text is added, even
+if other text in the file is deleted.
+
+<P>
+This information is from the dBASE for DOS Language Reference manual,
+Appendix C.
+
+<HR>
+<H2> <A name=C4 href=#T4> The data file header structure for dBASE 5.0 for Windows table file. </A> </H2>
+
+<H3> <A name=C4.1 href=#T4.1> The table file header: </A> </H3>
+
+<TABLE BORDER>
+<TR> <TD> <B> Byte  	<TD> <B> Contents <TD> <B> Description
+<TR> <TD> 0     	<TD> 1 byte      <TD> Valid dBASE for Windows table file; bits 0-2 indicate
+	                	  version number; bit 3 indicates presence of a dBASE IV
+	                	  or dBASE for Windows memo file; bits 4-6 indicate the
+	                	  presence of a dBASE IV SQL table; bit 7 indicates the
+	                	  presence of any .DBT memo file (either a dBASE III PLUS
+	                	  type or a dBASE IV or dBASE for Windows memo file).
+<TR> <TD> 1-3   	<TD> 3 bytes     <TD> Date of last update; in YYMMDD format.
+<TR> <TD> 4-7 number  	<TD> 32-bit      <TD> Number of records in the table.
+<TR> <TD> 8-9 number  	<TD> 16-bit      <TD> Number of bytes in the header.
+<TR> <TD> 10-11 number 	<TD> 16-bit      <TD> Number of bytes in the record.
+<TR> <TD> 12-13 	<TD> 2 bytes     <TD> Reserved; filled with zeros.
+<TR> <TD> 14    	<TD> 1 byte      <TD> Flag indicating incomplete dBASE IV transaction.
+<TR> <TD> 15    	<TD> 1 byte      <TD> dBASE IV encryption flag.
+<TR> <TD> 16-27 	<TD> 12 bytes    <TD> Reserved for multi-user processing.
+<TR> <TD> 28    	<TD> 1 byte      <TD> Production MDX flag; 01h stored in this byte if a production .MDX file exists for this table; 00h if no .MDX file exists.
+<TR> <TD> 29    	<TD> 1 byte      <TD> Language driver ID.
+<TR> <TD> 30-31 	<TD> 2 bytes     <TD> Reserved; filled with zeros.
+<TR> <TD> 32-n each 	<TD> 32 bytes    <TD> Field descriptor array (the structure of this array is shown below)
+<TR> <TD> n+1   	<TD> 1 byte      <TD> 0Dh stored as the field terminator.
+</TABLE>
+
+<P>
+n above is the last byte in the field descriptor array. The size of the
+array depends on the number of fields in the table file.
+
+<H3> <A name=C4.2 href=#T4.2> Table Field Descriptor Bytes </A> </H3>
+
+<TABLE BORDER>
+<TR> <TD> <B> Byte  <TD> <B> Contents    <TD> <B> Description
+<TR> <TD> 0-10  <TD> 11 bytes    <TD> Field name in ASCII (zero-filled).
+<TR> <TD> 11    <TD> 1 byte      <TD> Field type in ASCII (B, C, D, F, G, L, M, or N).
+<TR> <TD> 12-15 <TD> 4 bytes     <TD> Reserved.
+<TR> <TD> 16    <TD> 1 byte      <TD> Field length in binary.
+<TR> <TD> 17    <TD> 1 byte      <TD> Field decimal count in binary.
+<TR> <TD> 18-19 <TD> 2 bytes     <TD> Reserved.
+<TR> <TD> 20    <TD> 1 byte      <TD> Work area ID.
+<TR> <TD> 21-30 <TD> 10 bytes    <TD> Reserved.
+<TR> <TD> 31    <TD> 1 byte      <TD> Production .MDX field flag; 01h if field has an index tag in the production .MDX file; 00h if the field is not indexed.
+</TABLE>
+
+<H3> <A name=C4.3 href=#T4.3> Table Records </A> </H3>
+
+The records follow the header in the table file. Data records are preceded
+by one byte, that is, a space (20h) if the record is not deleted, an
+asterisk (2Ah) if the record is deleted. Fields are packed into records
+without field separators orrecord terminators. The end of the file is
+marked by a single byte, with the end-of-file marker, an OEM code page
+character value of 26 (1Ah). You can input OEM code page data as indicated
+below.
+
+<H3> <A name=C4.4 href=#T4.4> Allowable Input for dBASE Data Types </A> </H3>
+
+<TABLE BORDER>
+<TR> <TD> <B> Data Type  <TD> <B> Data Input
+<TR> <TD> B (Binary)     <TD> All OEM code page characters (stored internally as 10
+				digits representing a .DBT block number).
+<TR> <TD> C (Character)  <TD> All OEM code page characters.
+<TR> <TD> D (Date)       <TD> Numbers and a character to separate month, day, and year
+				(stored internally as 8 digits in YYYYMMDD format).
+<TR> <TD> G (General)    <TD> All OEM code page characters (stored internally as 10
+				digits or OLE) representing a .DBT block number).
+<TR> <TD> N (Numeric)    <TD> - . 0 1 2 3 4 5 6 7 8 9
+<TR> <TD> L (Logical)    <TD> ? Y y N n T t F f (? when not initialized).
+<TR> <TD> M (Memo)       <TD> All OEM code page characters (stored internally as 10
+				digits representing a .DBT block number).
+</TABLE>
+
+<H3> <A name=C4.5 href=#T4.5> Binary, Memo, and OLE Fields And .DBT Files </A> </H3>
+
+Binary, memo, and OLE fields store data in .DBT files consisting of blocks
+numbered sequentially (0, 1, 2, and so on). SET BLOCKSIZE determines the
+size of each block. The first block in the .DBT file, block 0, is the .DBT
+file header.
+
+<P>
+Each binary, memo, or OLE field of each record in the .DBF file contains
+the number of the block (in OEM code page values) where the field's data
+actually begins. If a field contains no data, the .DBF file contains
+blanks (20h) rather than a number.
+
+<P>
+When data is changed in a field, the block numbers may also change and the
+number in the .DBF may be changed to reflect the new location.
+
+<P>
+Unlike dBASE III PLUS, if you delete text in a memo field (or binary and
+OLE fields), dBASE for Windows (unlike dBASE IV) may reuse the space from
+the deleted text when you input new text. dBASE III PLUS always appends
+new text to the end of the .DBT file. In dBASE III PLUS, the .DBT file
+size grows whenever new text is added, even if other text in the file is
+deleted.
+
+<P>
+This information is from the dBASE for Windows Language Reference manual,
+Appendix C.
+
+<HR>
+<Font Size=-2> <I> <A href="mailto:Fulvio.Bille@elettra.trieste.it"> FB </A> </I> </Font>
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 6:14:45 Mar 23, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 14:00:07 Nov 2, 2016.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
